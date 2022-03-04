@@ -94,6 +94,10 @@ HiddenServicePort 80 <app-nextcloud-ip>:80
 HiddenServiceDir /data/app-pi-hole
 HiddenServicePort 80 <app-pi-hole-ip>:80
 
+# adguard Hidden Service
+HiddenServiceDir /data/app-adguard
+HiddenServicePort 8092 <app-adguard-ip>:8092
+
 # home-assistant Hidden Service
 HiddenServiceDir /data/app-home-assistant
 HiddenServicePort 80 <app-home-assistant-ip>:8123

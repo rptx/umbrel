@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  web:
+    image: adguard/adguardhome:v0.107.5
+    restart: on-failure
+    command: --no-check-update -c /opt/adguardhome/conf/AdGuardHome.yaml -h 0.0.0.0 -w /opt/adguardhome/work -p 8092
+    ports:
+      - 53:53
+      - 53:53/udp
+      - ${APP_ADGUARD_PORT}:8092
+    volumes:
+      - ${APP_DATA_DIR}/data/work:/opt/adguardhome/work
+      - ${APP_DATA_DIR}/data/conf:/opt/adguardhome/conf
+    networks:
+      default:
+        ipv4_address: $APP_ADGUARD_IP
